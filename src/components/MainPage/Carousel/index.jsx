@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions';
+import './index.scss';
 
 export default function Carousel() {
   const dispatch = useDispatch();
@@ -8,8 +9,9 @@ export default function Carousel() {
 
   const plus = () => dispatch(actions.increment());
   const minus = () => dispatch(actions.decrement());
+
   return (
-    <>
+    <main>
       <button type="button" onClick={plus}>
         Plus
       </button>
@@ -19,6 +21,6 @@ export default function Carousel() {
       <button type="button" onClick={minus}>
         Minus
       </button>
-    </>
+    </main>
   );
 }

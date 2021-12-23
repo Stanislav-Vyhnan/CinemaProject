@@ -1,4 +1,7 @@
+$logo-name: 1.4em 'Bauhaus 93';
+
 header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,6 +12,7 @@ header {
   }
 
   span {
-    font-size: 40px;
+    font: $logo-name;
+    font-size: 36px;
   }
 }

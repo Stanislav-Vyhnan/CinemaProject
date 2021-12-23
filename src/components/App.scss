@@ -1,14 +1,25 @@
 $body-backgraound-color: #602f94;
+$body-text-color: #e09a34;
+
+html,
+body {
+  height: 100%;
+}
 
 body {
   background-color: $body-backgraound-color;
   padding: 16px;
-  b {
-    font-size: 36px;
-  }
-  button {
-    margin-top: 20px;
-    width: 100px;
-    height: 40px;
-  }
+  color: $body-text-color;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button:hover {
+  background: 40% gray;
+  color: white;
 }
