@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as actions from '../../store/actions';
-import './index.scss';
+import * as actions from '../store/actions';
+import './Carousel.scss';
 
 export default function Carousel() {
   const dispatch = useDispatch();
-  const count = useSelector((state) => state.count);
+  const count = useSelector(state => state.count);
 
   const plus = () => dispatch(actions.increment());
   const minus = () => dispatch(actions.decrement());

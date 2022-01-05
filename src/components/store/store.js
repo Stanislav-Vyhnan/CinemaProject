@@ -9,6 +9,7 @@ import rootReducer from './rootReducer';
 
 const initialState = {
   count: 1,
+  role: 'user',
 };
 const store = createStore(rootReducer, initialState);
 
