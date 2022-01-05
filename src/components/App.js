@@ -1,16 +1,20 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.scss';
+import { useDispatch } from 'react-redux';
 import Carousel from './Carousel/Carousel';
 import CreatePoster from './CreatePoster/CreatePoster';
 import UserPosters from './UserPosters/UserPosters';
 import Posters from './Posters/Posters';
 import Page from './Page/Page';
+import swGetData from '../service/swGetData';
 
 export default function App() {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    return true;
-  });
+    return swGetData(dispatch);
+  }, [dispatch]);
 
   return (
     <div className="wrapper">

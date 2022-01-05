@@ -5,6 +5,7 @@ export default function Poster({ data }) {
   return (
     <div key={data.id} className="poster">
       <p>id: {data.id}</p>
+      <p>title: {data.title}</p>
       <p>genre: {data.genre}</p>
       <p>age: {data.age}</p>
       <p>graphics: {data.graphics}D</p>

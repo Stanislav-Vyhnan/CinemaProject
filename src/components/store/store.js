@@ -8,7 +8,7 @@ import rootReducer from './rootReducer';
 // const middlewareEnhancer = applyMiddleware(...middlewares);
 
 const initialState = {
-  count: 1,
+  posters: [],
   role: 'user',
 };
 const store = createStore(rootReducer, initialState);

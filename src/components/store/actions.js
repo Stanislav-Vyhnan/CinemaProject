@@ -1,9 +1,5 @@
-export function increment() {
-  return { type: 'INCREMENT' };
-}
-
-export function decrement() {
-  return { type: 'DECREMENT' };
+export function addPostersToStore(state) {
+  return { type: 'ADD_DATA_TO_STORE', posters: state };
 }
 
 export function isAdmin() {

@@ -1,16 +1,9 @@
 import { combineReducers } from 'redux';
 
-function counterReducer(state = 0, action) {
-  switch (action.type) {
-    case 'INCREMENT': {
-      return state + 1;
-    }
-    case 'DECREMENT': {
-      return state - 1;
-    }
-    default:
-      return state;
-  }
+function addDataToStore(state = [], action) {
+  return action.type === 'ADD_DATA_TO_STORE'
+    ? [...state, ...action.posters]
+    : [];
 }
 
 function isAdminReducer(state = 'user', action) {
@@ -27,6 +20,6 @@ function isAdminReducer(state = 'user', action) {
 }
 
 export default combineReducers({
-  count: counterReducer,
+  posters: addDataToStore,
   role: isAdminReducer,
 });

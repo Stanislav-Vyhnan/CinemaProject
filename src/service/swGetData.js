@@ -1,15 +1,11 @@
-import { useState, useEffect } from 'react';
 import axios from 'axios';
+import * as actions from '../components/store/actions';
 
-export default function swGetData() {
-  const [posters, setPosters] = useState([]);
-
+export default function swGetData(dispatch) {
   const getProducts = async () => {
-    const response = await axios.get('http://localhost:5000/posters');
-    setPosters(response.data);
+    const { data } = await axios.get('http://localhost:5000/posters');
+    dispatch(actions.addPostersToStore(data));
   };
 
-  useEffect(() => {
-    return getProducts();
-  }, []);
+  return getProducts();
 }
