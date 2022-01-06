@@ -6,24 +6,26 @@ export default function Navigation() {
     <>
       <Link to="create">
         <button type="button" className="btn">
-          Створити
+          CREATE
           <br />
-          афішу
+          POSTER
         </button>
       </Link>
       <Link to="posters">
         <button type="button" className="btn">
-          Афіши
+          POSTERS
         </button>
       </Link>
       <Link to="/">
         <button type="button" className="btn">
-          Головна
+          HOME
         </button>
       </Link>
       <Link to="userPosters">
         <button type="button" className="btn">
-          Мої Афіши
+          MY
+          <br />
+          POSTERS
         </button>
       </Link>
     </>

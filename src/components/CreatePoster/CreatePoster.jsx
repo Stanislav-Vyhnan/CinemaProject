@@ -27,7 +27,7 @@ export default function CreatePoster() {
 
   return (
     <>
-      <div>Hello, Admin!</div>
+      <h3>Hello, Admin!</h3>
       <div>
         <form onSubmit={addPoster}>
           {data.map(el => (

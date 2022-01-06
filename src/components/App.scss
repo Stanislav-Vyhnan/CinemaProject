@@ -1,14 +1,18 @@
-$body-backgraound-color: #602f94;
-$body-text-color: #e09a34;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$body-text-color: #ffd700;
+$body-backgraound-color: rgb(42, 41, 41);
 
 html,
-body {
+body,
+#root {
   height: 100%;
 }
 
 body {
-  background-color: $body-backgraound-color;
   color: $body-text-color;
+  background: $body-backgraound-color;
+  font-family: 'Roboto Slab', serif;
 }
 
 .wrapper {
@@ -16,4 +20,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+button {
+  cursor: pointer;
 }

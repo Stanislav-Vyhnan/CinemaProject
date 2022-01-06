@@ -8,10 +8,12 @@ export default function Header() {
     <header>
       <img src={logo} alt="Company logo" />
       <div>
-        <span>C I N E M A</span>
+        <h1>C I N E M A</h1>
       </div>
-
-      <img src={exit} alt="Exit to profile" />
+      <div className="login">
+        <span>Login</span>
+        <img src={exit} alt="Exit to profile" />
+      </div>
     </header>
   );
 }
