@@ -63,7 +63,7 @@
       }
     ]
   },
-  "parser": "react-scripts/node_modules/babel-eslint",
+  "parser": "babel-eslint",
   "settings": {
     "import/extensions": [".js", ".jsx", ".json"]
   }

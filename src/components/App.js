@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Carousel from './Carousel/Carousel';
 import CreatePoster from './CreatePoster/CreatePoster';
 import UserPosters from './UserPosters/UserPosters';
-import Posters from './Posters/Posters';
+import Posters from './Posters';
 import Page from './Page/Page';
 import swGetData from '../service/swGetData';
 import './App.scss';

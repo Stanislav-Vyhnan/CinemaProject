@@ -1,7 +1,9 @@
 $genre-backgraound-color: rgb(59, 58, 58);
 
 .genre {
-  display: none;
+  background: $genre-backgraound-color;
+  margin-right: auto;
+
   button:hover {
     background: 40% gray;
     border: 4px solid #ffd700;

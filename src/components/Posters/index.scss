@@ -1,0 +1,23 @@
+.wrapper-posters {
+  height: auto;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: stretch;
+
+  .posters {
+    height: auto;
+    display: flex;
+  }
+  .poster {
+    border: 2px solid #ffd700;
+    border-radius: 10%;
+    margin: 5px;
+    padding: 10px;
+
+    p {
+      font-size: 20px;
+    }
+  }
+}
