@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import labelData from './labelData';
 import Description from './Description';
 import './index.scss';
 import PosterInput from './PosterInput';
+import Picture from './Pictures';
 
 export default function CreatePoster() {
-  const [data, state, setState] = labelData();
+  const [data, state] = labelData();
   const [description, setDescription] = useState('');
+  const posterInpRef = useRef(null);
+  const addPictInpRef = useRef(null);
   const navigate = useNavigate();
-
-  const clearInputs = (...listFuncs) => {
-    listFuncs.forEach(func => func(''));
-  };
 
   const addPoster = async e => {
     e.preventDefault();
@@ -21,24 +20,22 @@ export default function CreatePoster() {
       ...state,
       description,
     });
-    navigate('');
-    clearInputs(...setState, setDescription);
+    navigate(0);
   };
 
   return (
-    <>
+    <div className="create-posters">
       <h3>Hello, Admin!</h3>
-      <div>
+      <div className="form">
         <form onSubmit={addPoster}>
           {data.map(el => (
             <PosterInput key={el.id} data={el} />
           ))}
           <Description state={[description, setDescription]} />
-          <div>
-            <button type="submit">Add poster</button>
-          </div>
+          <Picture dataRef={[posterInpRef, addPictInpRef]} />
+          <button type="submit">Add poster</button>
         </form>
       </div>
-    </>
+    </div>
   );
 }

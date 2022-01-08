@@ -2,34 +2,33 @@ import React from 'react';
 import './Genre.scss';
 
 export default function Genre() {
+  const active = '';
   return (
     <div className="genre">
-      <ul>
-        <li>
-          <button type="button">Action</button>
-        </li>
-        <li>
-          <button type="button">Comedy</button>
-        </li>
-        <li>
-          <button type="button">Drama</button>
-        </li>
-        <li>
-          <button type="button">Horror</button>
-        </li>
-        <li>
-          <button type="button">Mystery</button>
-        </li>
-        <li>
-          <button type="button">Romance</button>
-        </li>
-        <li>
-          <button type="button">Thriller</button>
-        </li>
-        <li>
-          <button type="button">Fantasy</button>
-        </li>
-      </ul>
+      <button type="button" className={`btn ${active}`}>
+        Action
+      </button>
+      <button type="button" className={`btn ${active}`}>
+        Comedy
+      </button>
+      <button type="button" className={`btn ${active}`}>
+        Drama
+      </button>
+      <button type="button" className={`btn ${active}`}>
+        Horror
+      </button>
+      <button type="button" className={`btn ${active}`}>
+        Mystery
+      </button>
+      <button type="button" className={`btn ${active}`}>
+        Romance
+      </button>
+      <button type="button" className={`btn ${active}`}>
+        Thriller
+      </button>
+      <button type="button" className={`btn ${active}`}>
+        Fantasy
+      </button>
     </div>
   );
 }

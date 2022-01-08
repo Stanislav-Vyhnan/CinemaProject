@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function Poster({ data }) {
   return (
-    <div key={data.id} className="poster">
+    <div className="swiper-slide">
       <p>id: {data.id}</p>
       <p>title: {data.title}</p>
       <p>genre: {data.genre}</p>

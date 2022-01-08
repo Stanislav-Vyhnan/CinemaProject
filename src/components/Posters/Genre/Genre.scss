@@ -1,12 +1,22 @@
-$genre-backgraound-color: rgb(59, 58, 58);
+$genre-backgraound-color: rgb(39, 38, 38);
+$genre-shadow: 4px 0 4px -5px #ffd700;
+$all-text-shadow: 2px 2px 3px black;
 
 .genre {
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   background: $genre-backgraound-color;
-  margin-right: auto;
-
-  button:hover {
-    background: 40% gray;
-    border: 4px solid #ffd700;
-    color: white;
+  border: 4px solid rgb(59, 58, 58);
+  box-shadow: $genre-shadow;
+  .btn {
+    &:hover {
+      text-shadow: $all-text-shadow;
+      background: gray;
+      border: 2px solid #ffd700;
+      color: white;
+    }
   }
 }

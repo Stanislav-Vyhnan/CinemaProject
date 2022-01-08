@@ -1,26 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Poster from './Poster';
+import './Posters.scss';
+import Slider from '../../hoc/slider/Slider';
 
 export default function Posters() {
   const posters = useSelector(state => state.posters);
+  console.log(posters);
   return (
     <div className="posters">
-      {posters.map(el => (
-        <Poster key={el.id} data={el} />
-      ))}{' '}
-      {posters.map(el => (
-        <Poster key={el.id} data={el} />
-      ))}{' '}
-      {posters.map(el => (
-        <Poster key={el.id} data={el} />
-      ))}{' '}
-      {posters.map(el => (
-        <Poster key={el.id} data={el} />
-      ))}{' '}
-      {posters.map(el => (
-        <Poster key={el.id} data={el} />
-      ))}{' '}
+      <Slider data={posters} />
     </div>
   );
 }

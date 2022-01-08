@@ -8,7 +8,6 @@ export default function labelData() {
   const [releasedate, setReleaseDate] = useState('');
 
   const state = { title, genre, age, graphics, releasedate };
-  const setState = [setTitle, setGenre, setAge, setGraphics, setReleaseDate];
   const data = [
     { id: 'title', name: 'Title', value: title, change: setTitle },
     { id: 'genre', name: 'Genre', value: genre, change: setGenre },
@@ -21,5 +20,5 @@ export default function labelData() {
       change: setReleaseDate,
     },
   ];
-  return [data, state, setState];
+  return [data, state];
 }
