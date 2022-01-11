@@ -1,0 +1,120 @@
+$genre-backgraound-color: rgb(39, 38, 38);
+$genre-backgraound-color-toggle: #ffd700;
+$genre-shadow: 4px 0 4px -5px #ffd700;
+$all-text-shadow: 2px 2px 3px black;
+$genre-border: 4px solid rgb(59, 58, 58);
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -320px;
+  transition: left 0.3s;
+  z-index: 2000;
+  background: $genre-backgraound-color;
+  border: $genre-border;
+
+  section {
+    margin-top: 5px;
+  }
+  .genre-close {
+    border: $genre-border;
+    position: relative;
+    border-radius: 50%;
+    &:hover {
+      text-shadow: $all-text-shadow;
+      background: gray;
+      border: 4px solid #ffd700;
+      color: white;
+    }
+  }
+
+  h3 {
+    user-select: none;
+    text-align: center;
+  }
+
+  .btn {
+    min-width: 100%;
+    &:hover {
+      text-shadow: $all-text-shadow;
+      background: gray;
+      border: 2px solid #ffd700;
+      color: white;
+    }
+  }
+}
+
+.genre-toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.5em;
+  background: rgb(39, 38, 38);
+  color: #dadada;
+  cursor: pointer;
+  font-size: 1.2em;
+  line-height: 1;
+  z-index: 2001;
+  transition: left 0.3s;
+
+  &:after {
+    content: 'GENRES';
+  }
+}
+
+#genre-toggle {
+  position: absolute;
+  display: none;
+}
+
+.genre-toggle-hidden {
+  display: none;
+}
+
+.genre-show {
+  left: 0;
+}
+
+@media screen and (min-width: 320px) {
+  html,
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  html,
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+  .list {
+    width: 100%;
+    box-shadow: none;
+  }
+}
+
+.mask-content {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.mask-content-show {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s, visibility 0.5s;
+}

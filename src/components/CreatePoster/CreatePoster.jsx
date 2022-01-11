@@ -1,26 +1,28 @@
 import React, { useState, useRef } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import labelData from './labelData';
 import Description from './Description';
 import './index.scss';
 import PosterInput from './PosterInput';
-import Picture from './Pictures';
+import Pictures from './Pictures';
+import { swPostData } from '../../service';
+
+const POSTER_URL = 'http://localhost:5000/poster';
+const POSTER_INFO_URL = 'http://localhost:5000/poster_info';
 
 export default function CreatePoster() {
   const [data, state] = labelData();
+  const [poster, posterInfo] = state;
   const [description, setDescription] = useState('');
   const posterInpRef = useRef(null);
   const addPictInpRef = useRef(null);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const addPoster = async e => {
+  const addPoster = e => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/posters', {
-      ...state,
-      description,
-    });
-    navigate(0);
+    swPostData(poster, POSTER_URL);
+    swPostData({ ...posterInfo, description }, POSTER_INFO_URL);
+    // navigate(0);
   };
 
   return (
@@ -32,7 +34,7 @@ export default function CreatePoster() {
             <PosterInput key={el.id} data={el} />
           ))}
           <Description state={[description, setDescription]} />
-          <Picture dataRef={[posterInpRef, addPictInpRef]} />
+          <Pictures dataRef={[posterInpRef, addPictInpRef]} />
           <button type="submit">Add poster</button>
         </form>
       </div>

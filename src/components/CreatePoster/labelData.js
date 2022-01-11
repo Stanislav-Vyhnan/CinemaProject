@@ -7,7 +7,8 @@ export default function labelData() {
   const [graphics, setGraphics] = useState('');
   const [releasedate, setReleaseDate] = useState('');
 
-  const state = { title, genre, age, graphics, releasedate };
+  const poster = { title, releasedate };
+  const info = { genre, age, graphics };
   const data = [
     { id: 'title', name: 'Title', value: title, change: setTitle },
     { id: 'genre', name: 'Genre', value: genre, change: setGenre },
@@ -20,5 +21,5 @@ export default function labelData() {
       change: setReleaseDate,
     },
   ];
-  return [data, state];
+  return [data, [poster, info]];
 }

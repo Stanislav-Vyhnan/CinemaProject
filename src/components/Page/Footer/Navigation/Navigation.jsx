@@ -11,21 +11,9 @@ export default function Navigation() {
           POSTER
         </button>
       </Link>
-      <Link to="posters">
-        <button type="button" className="btn">
-          POSTERS
-        </button>
-      </Link>
       <Link to="/">
         <button type="button" className="btn">
           HOME
-        </button>
-      </Link>
-      <Link to="userPosters">
-        <button type="button" className="btn">
-          MY
-          <br />
-          POSTERS
         </button>
       </Link>
     </>
