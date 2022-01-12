@@ -4,23 +4,33 @@ import React from 'react';
 /* eslint import/no-unresolved: 0 */
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
+import { Navigation, Virtual } from 'swiper';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 
 import poster from '../../../assets/images/poster.jpg';
 import './Slider.scss';
+import Poster from './Poster/Poster';
 
 export default function Slider(/* { data } */) {
   // const { id } = data[0];
-  const getId = e => {
-    return e.target.id;
-  };
+  // const getId = e => {
+  //   return e.target.id;
+  // };
+  const data = [
+    { id: 1, src: poster },
+    { id: 2, src: poster },
+    { id: 3, src: poster },
+    { id: 4, src: poster },
+    { id: 5, src: poster },
+    { id: 6, src: poster },
+    { id: 7, src: poster },
+  ];
   return (
     <>
       {/* <img className="poster" src={poster} alt="Poster" /> */}
       <Swiper
-        modules={[Navigation]}
+        modules={[Navigation, Virtual]}
         className="my-swiper"
         navigation
         breakpoints={{
@@ -29,70 +39,13 @@ export default function Slider(/* { data } */) {
           768: { spaceBetween: 0, slidesPerView: 3 },
           1024: { spaceBetween: 0, slidesPerView: 4 },
         }}
+        virtual
       >
-        <SwiperSlide>
-          <img
-            onMouseEnter={getId}
-            id="1"
-            className="poster"
-            src={poster}
-            alt="Poster"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            onMouseEnter={getId}
-            id="2"
-            className="poster"
-            src={poster}
-            alt="Poster"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            onMouseEnter={getId}
-            id="3"
-            className="poster"
-            src={poster}
-            alt="Poster"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            onMouseEnter={getId}
-            id="4"
-            className="poster"
-            src={poster}
-            alt="Poster"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            onMouseEnter={getId}
-            id="5"
-            className="poster"
-            src={poster}
-            alt="Poster"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            onMouseEnter={getId}
-            id="6"
-            className="poster"
-            src={poster}
-            alt="Poster"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            onMouseEnter={getId}
-            id="7"
-            className="poster"
-            src={poster}
-            alt="Poster"
-          />
-        </SwiperSlide>
+        {data.map((el, index) => (
+          <SwiperSlide key={el.id} virtualIndex={index}>
+            <Poster data={el} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

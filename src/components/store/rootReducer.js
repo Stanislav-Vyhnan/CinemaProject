@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 function addDataToStore(state = [], action) {
   return action.type === 'ADD_DATA_TO_STORE'
     ? [...state, ...action.posters]
-    : [];
+    : state;
 }
 
 function isAdminReducer(state = 'user', action) {

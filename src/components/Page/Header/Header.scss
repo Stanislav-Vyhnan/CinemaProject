@@ -1,16 +1,26 @@
 $header-backgraound-color: rgb(59, 58, 58);
 $header-shadow: 0px 4px 15px -10px #ffd700;
 $all-text-shadow: 2px 2px 5px black;
+
 header {
   text-shadow: $all-text-shadow;
   z-index: 2;
   width: 100%;
-  padding: 5px;
+  padding: 5px 15px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   box-shadow: $header-shadow;
   background-color: $header-backgraound-color;
+
+  .h1,
+  .item,
+  .login {
+    flex: 1 1 33.333%;
+  }
+
+  h1 {
+    text-align: center;
+  }
 
   h1,
   .login {
@@ -20,7 +30,7 @@ header {
   .logo {
     width: 44px;
     height: 44px;
-    margin-left: 10px;
+    margin-left: 5px;
   }
   .exit {
     width: 34px;
@@ -29,13 +39,13 @@ header {
 
   .login {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     cursor: pointer;
 
     span {
       font-size: 1.5em;
-      margin-right: 1vh;
+      margin-right: 0.7vw;
     }
   }
 }

@@ -1,25 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Pictures({ dataRef }) {
-  const [posterInpRef, addPictInpRef] = dataRef;
+export default function Pictures({ setImg }) {
+  const saveImg = e => {
+    setImg(e.target.files[0]);
+  };
   return (
     <>
-      <input type="file" accept=".png, .jpg, .jpeg" ref={posterInpRef} />
-      <span>Poster</span>
-      <br />
-      <input
-        type="file"
-        accept=".png, .jpg, .jpeg"
-        ref={addPictInpRef}
-        multiple
-      />
-      <span>Additional pictures</span>
-      <br />
+      <section>
+        <h4>Add picture for poster</h4>
+        <label htmlFor="addPoster">
+          <input
+            id="addPoster"
+            type="file"
+            accept=".png, .jpg, .jpeg"
+            onChange={saveImg}
+          />
+        </label>
+      </section>
     </>
   );
 }
 
 Pictures.propTypes = {
-  dataRef: PropTypes.array.isRequired,
+  setImg: PropTypes.func.isRequired,
 };
