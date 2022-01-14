@@ -5,9 +5,9 @@ export default function labelData() {
   const [genre, setGenre] = useState('');
   const [age, setAge] = useState('');
   const [graphics, setGraphics] = useState('');
-  const [releasedate, setReleaseDate] = useState('');
-
-  const state = { genre, title, releasedate, age, graphics };
+  const [releaseDate, setReleaseDate] = useState('');
+  const [linkToYTTrailer, setLink] = useState('');
+  const state = { genre, title, releaseDate, age, graphics, linkToYTTrailer };
   const data = [
     { id: 'title', name: 'Title', value: title, change: setTitle },
     { id: 'genre', name: 'Genre', value: genre, change: setGenre },
@@ -16,8 +16,14 @@ export default function labelData() {
     {
       id: 'release-date',
       name: 'Release date',
-      value: releasedate,
+      value: releaseDate,
       change: setReleaseDate,
+    },
+    {
+      id: 'linkYT',
+      name: 'Link to YT trailer',
+      value: linkToYTTrailer,
+      change: setLink,
     },
   ];
   return [data, state];

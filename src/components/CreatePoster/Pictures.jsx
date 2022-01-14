@@ -13,7 +13,7 @@ export default function Pictures({ setImg }) {
           <input
             id="addPoster"
             type="file"
-            accept=".png, .jpg, .jpeg"
+            accept="image/png, image/gif, image/jpeg"
             onChange={saveImg}
           />
         </label>

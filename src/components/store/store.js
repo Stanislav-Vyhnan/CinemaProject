@@ -10,6 +10,8 @@ import rootReducer from './rootReducer';
 const initialState = {
   posters: [],
   role: 'user',
+  films: [],
+  filmsById: [],
 };
 const store = createStore(rootReducer, initialState);
 

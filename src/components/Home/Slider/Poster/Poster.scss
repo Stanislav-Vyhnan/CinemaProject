@@ -1,5 +1,7 @@
 $poster-shadow: 0 0 5px 0px rgb(0, 0, 0) inset;
 $all-text-shadow: 2px 2px 3px black;
+$footer-header: 115px;
+$genre-h3: red;
 
 .blur {
   box-shadow: $poster-shadow;
@@ -7,69 +9,40 @@ $all-text-shadow: 2px 2px 3px black;
 }
 
 .container {
-  min-height: 100%;
+  position: relative;
+  height: 100%;
   min-width: 100%;
 
   .poster-img {
-    min-height: 100%;
     transition: 0.3s;
+    min-height: calc(100vh - $footer-header);
   }
 
   .poster {
-    min-height: 100%;
+    position: absolute;
+    height: 70%;
+    width: 100%;
+    top: 50%;
+    transform: translate(0, -50%);
 
-    .add-poster {
-      background: rgba(0, 0, 0, 0);
-      max-width: 64px;
-      max-height: 64px;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 100px;
-      margin-left: auto;
-      margin-right: auto;
-      border: none;
+    .poster-info {
+      line-height: 1.7em;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      text-shadow: $all-text-shadow;
+      padding: 0px 5px;
 
-      .add-img {
-        transition: 0.3s;
-        &:hover {
-          transform: scale(1.1);
+      .poster-title {
+        height: 15%;
+        user-select: none;
+        h3 {
+          color: $genre-h3;
         }
       }
-    }
-  }
-  .poster-info {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    color: white;
-    padding-left: 20px;
-    padding-right: 20px;
-
-    &:hover {
-      .btn-info {
-        background-color: #ffd700;
-      }
-    }
-
-    .btn-info {
-      color: white;
-      min-width: 40px;
-      min-height: 40px;
-      font-size: 1.5em;
-      background-color: gray;
-      border-radius: 20%;
-      box-shadow: 0;
-      border: none;
-      text-shadow: $all-text-shadow;
-      transition: 0.3s;
-    }
-
-    span {
-      margin-left: 7px;
-      text-shadow: $all-text-shadow;
     }
   }
 }

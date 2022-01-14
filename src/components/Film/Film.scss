@@ -3,4 +3,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  div {
+    img {
+      max-height: 700px;
+      max-width: 300px;
+      margin-right: 15px;
+    }
+    padding: 10px;
+    margin: 10px;
+  }
+  .film-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 }

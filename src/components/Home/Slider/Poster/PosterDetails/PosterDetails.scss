@@ -1,0 +1,41 @@
+$all-text-shadow: 2px 2px 3px black;
+
+.poster-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.btn-info {
+  color: white;
+  max-height: 40px;
+  font-size: 24px;
+  padding: 7px;
+  background-color: gray;
+  border-radius: 6%;
+  box-shadow: 0;
+  border: none;
+  text-shadow: $all-text-shadow;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #ffd700;
+  }
+}
+
+.add-poster {
+  background: rgba(0, 0, 0, 0);
+  max-width: 64px;
+  max-height: 64px;
+  border: none;
+  margin-top: 7px;
+
+  .add-img {
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

@@ -1,15 +1,12 @@
 import axios from 'axios';
-import * as actions from '../components/store/actions';
+/* eslint sonarjs/prefer-immediate-return: 0 */
 
-export function swGetData(dispatch) {
-  const getProducts = async () => {
-    const { data } = await axios.get('http://localhost:5000/posters/posters');
-    console.log(data);
-    dispatch(actions.addPostersToStore(data));
-  };
+const POSTERS_URL = 'http://localhost:5000/posters/';
 
-  return getProducts();
-}
+export const swGetData = async () => {
+  const data = await axios.get('http://localhost:5000/posters/posters');
+  return data;
+};
 
 export const swPostData = (url, data) => {
   return axios({
@@ -18,4 +15,13 @@ export const swPostData = (url, data) => {
     data,
     headers: { 'Content-Type': 'multipart/form-data' },
   });
+};
+
+export const swGetDataById = id => {
+  return axios.get(POSTERS_URL + id);
+};
+
+export const swDeletePoster = ({ id, fileName }) => {
+  console.log(id, fileName);
+  return axios.delete(POSTERS_URL + id, { params: fileName, id });
 };

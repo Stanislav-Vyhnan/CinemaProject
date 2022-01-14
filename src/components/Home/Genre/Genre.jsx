@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import './Genre.scss';
+import PropTypes from 'prop-types';
+
 /* eslint jsx-a11y/label-has-associated-control: 0 */
 /* eslint jsx-a11y/control-has-associated-label: 0 */
 
-export default function Genre() {
+export default function Genre({ genres, setGenre }) {
   const [visiable, setvisiable] = useState(false);
+
   const onShow = () => setvisiable(state => !state);
+  const onSetGenre = e => {
+    const genre = e.target.id;
+    setGenre(genre);
+  };
 
   const genreTogle = `genre-toggle ${visiable ? 'genre-toggle-hidden' : ''}`;
   const genreList = `list ${visiable ? 'genre-show' : ''}`;
@@ -26,20 +33,27 @@ export default function Genre() {
             <h3>Genres</h3>
             <ul>
               <li>
-                <button type="button" className="btn">
-                  Action
+                <button
+                  id="all"
+                  type="button"
+                  className="btn"
+                  onClick={onSetGenre}
+                >
+                  All
                 </button>
               </li>
-              <li>
-                <button type="button" className="btn">
-                  Comedy
-                </button>
-              </li>
-              <li>
-                <button type="button" className="btn">
-                  Drama
-                </button>
-              </li>
+              {genres.map(el => (
+                <li key={el[1]}>
+                  <button
+                    type="button"
+                    className="btn"
+                    id={el[0]}
+                    onClick={onSetGenre}
+                  >
+                    {el[0]}
+                  </button>
+                </li>
+              ))}
             </ul>
           </section>
         </div>
@@ -48,53 +62,9 @@ export default function Genre() {
       </div>
     </>
   );
-
-  // {/* <button type="button" className="btn">
-  //   Horror
-  // </button>
-
-  // <button type="button" className="btn">
-  //   Mystery
-  // </button>
-
-  // <button type="button" className="btn">
-  //   Romance
-  // </button>
-
-  // <button type="button" className="btn">
-  //   Thriller
-  // </button>
-
-  // <button type="button" className="btn">
-  //   Fantasy
-  // </button> */}
 }
 
-/*
-
-<li><button type="button" className="btn">
-        Action
-      </butt</li>on>
-      <li><button type="button" className="btn">
-        Comedy
-      </button></li>
-      <li><button type="button" className="btn">
-        Drama
-      </button></li>
-      <li><button type="button" className="btn">
-        Horror
-      </button></li>
-      <li><button type="button" className="btn">
-        Mystery
-      </button></li>
-      <li><button type="button" className="btn">
-        Romance
-      </button></li>
-      <li><button type="button" className="btn">
-        Thriller
-      </button></li>
-      <li><button type="button" className="btn">
-        Fantasy
-      </button></li>
-
-*/
+Genre.propTypes = {
+  genres: PropTypes.array.isRequired,
+  setGenre: PropTypes.func.isRequired,
+};

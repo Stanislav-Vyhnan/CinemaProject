@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import labelData from './labelData';
 import Description from './Description';
 import './index.scss';
@@ -10,25 +10,26 @@ import { swPostData } from '../../service';
 const POSTER_URL = 'http://localhost:5000/posters';
 
 export default function CreatePoster() {
-  const [data] = labelData();
+  const [data, state] = labelData();
   const [description, setDescription] = useState('');
   const [img, setImg] = useState(null);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const addPoster = e => {
+  const addPoster = async e => {
     e.preventDefault();
+    const { title, genre, age, graphics, releaseDate, linkToYTTrailer } = state;
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('genre', genre);
+    formData.append('age', age);
+    formData.append('graphics', graphics);
+    formData.append('releaseDate', releaseDate);
+    formData.append('poster', img);
+    formData.append('description', description);
+    formData.append('linkTrailerYT', linkToYTTrailer);
 
-    const linkToPoster = new FormData();
-    linkToPoster.append('poster', img);
-    linkToPoster.append('description', description);
-
-    swPostData(POSTER_URL, linkToPoster)
-      .then(res => {
-        console.log(res.data.message);
-      })
-      .catch(err => console.log(err));
-
-    // navigate(0);
+    swPostData(POSTER_URL, formData);
+    navigate(0);
   };
 
   return (

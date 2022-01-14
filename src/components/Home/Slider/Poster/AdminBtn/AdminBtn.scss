@@ -1,0 +1,26 @@
+.poster-panel {
+  display: flex;
+  justify-content: center;
+  transition: 0.3s;
+
+  %template {
+    background: (0, 0, 0, 0);
+    width: 64px;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  button {
+    border: none;
+  }
+
+  .edit-poster {
+    @extend %template;
+  }
+
+  .delete-poster {
+    @extend %template;
+    filter: 2px solid black;
+  }
+}

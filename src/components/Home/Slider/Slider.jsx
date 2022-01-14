@@ -1,47 +1,40 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
-
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 /* eslint import/no-unresolved: 0 */
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Virtual } from 'swiper';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
+import 'swiper/scss/virtual';
 
-import poster from '../../../assets/images/poster.jpg';
 import './Slider.scss';
 import Poster from './Poster/Poster';
 
-export default function Slider(/* { data } */) {
-  // const { id } = data[0];
-  // const getId = e => {
-  //   return e.target.id;
-  // };
-  const data = [
-    { id: 1, src: poster },
-    { id: 2, src: poster },
-    { id: 3, src: poster },
-    { id: 4, src: poster },
-    { id: 5, src: poster },
-    { id: 6, src: poster },
-    { id: 7, src: poster },
-  ];
+export default function Slider({ genre }) {
+  const [statePosters, setPosters] = useState([]);
+  const films = useSelector(state => state.films);
+  useEffect(() => {
+    return setPosters(films);
+  }, [genre, films]);
   return (
     <>
-      {/* <img className="poster" src={poster} alt="Poster" /> */}
+      {/* eslint react/jsx-boolean-value:0 */}
       <Swiper
         modules={[Navigation, Virtual]}
         className="my-swiper"
         navigation
+        loop
         breakpoints={{
-          320: { spaceBetween: 0, slidesPerView: 1 },
-          510: { spaceBetween: 0, slidesPerView: 2 },
-          768: { spaceBetween: 0, slidesPerView: 3 },
           1024: { spaceBetween: 0, slidesPerView: 4 },
+          768: { spaceBetween: 0, slidesPerView: 3 },
+          510: { spaceBetween: 0, slidesPerView: 2 },
+          320: { spaceBetween: 0, slidesPerView: 1 },
         }}
         virtual
       >
-        {data.map((el, index) => (
+        {statePosters.map((el, index) => (
           <SwiperSlide key={el.id} virtualIndex={index}>
             <Poster data={el} />
           </SwiperSlide>
@@ -51,6 +44,6 @@ export default function Slider(/* { data } */) {
   );
 }
 
-// Slider.propTypes = {
-//   data: PropTypes.array.isRequired,
-// };
+Slider.propTypes = {
+  genre: PropTypes.string.isRequired,
+};
