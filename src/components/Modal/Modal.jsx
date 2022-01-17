@@ -1,17 +1,11 @@
 import React from 'react';
 import './Modal.scss';
 import PropTypes from 'prop-types';
+import localization from '../../сonstants/localization';
 
-const Modal = ({
-  children,
-  visible = false,
-  title = '',
-  footer = '',
-  onClose,
-}) => {
+const Modal = ({ children, visible = false, title = '', onClose }) => {
   const onKeydown = e => {
-    console.log(e);
-    return e === 'Escape' ? onClose() : false;
+    return e.key === 'Escape' ? onClose() : false;
   };
 
   if (!visible) return null;
@@ -46,7 +40,11 @@ const Modal = ({
         <div className="modal-body">
           <div className="modal-content">{children}</div>
         </div>
-        {footer && <div className="modal-footer">{footer}</div>}
+        <div className="modal-footer">
+          <button type="button" onClick={onClose}>
+            {localization.CLOSE}
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -58,23 +56,5 @@ Modal.propTypes = {
   children: PropTypes.object.isRequired,
   visible: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
-  footer: PropTypes.object.isRequired,
   onClose: PropTypes.func.isRequired,
 };
-
-// const App = () => {
-//   const [isModal, setModal] = React.useState(false);
-//   const onClose = () => setModal(false);
-//   return (
-//     <React.Fragment>
-//       <button onClick={() => setModal(true)}>Клик-клик-клик</button>
-//       <Modal
-//         visible={isModal}
-//         title="Заголовок"
-//         content={<p>Что-то важное</p>}
-//         footer={<button onClick={onClose}>Закрыть</button>}
-//         onClose={onClose}
-//       />
-//     </React.Fragment>
-//   );
-// };

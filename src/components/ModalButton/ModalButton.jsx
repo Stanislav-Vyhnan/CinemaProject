@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { swDeletePoster } from '../../service';
+import './ModalButton.scss';
+import localization from '../../сonstants/localization';
 
 export default function ModalButton({ func, poster }) {
   const onDeletePoster = () => {
@@ -8,14 +10,14 @@ export default function ModalButton({ func, poster }) {
     func();
   };
   return (
-    <>
+    <div className="modal-btn">
       <button type="button" onClick={onDeletePoster}>
-        Yes, I am
+        {localization.YES_I_AM}
       </button>
       <button type="button" onClick={func}>
-        No, I am not
+        {localization.NO_I_AM_NOT}
       </button>
-    </>
+    </div>
   );
 }
 

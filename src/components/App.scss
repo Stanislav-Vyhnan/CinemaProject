@@ -31,3 +31,16 @@ button {
 #root {
   --swiper-theme-color: $body-text-color;
 }
+
+@media screen and (max-width: 430px) {
+  h3 {
+    font-size: 11px;
+  }
+  textarea {
+    max-width: 85vw;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+}

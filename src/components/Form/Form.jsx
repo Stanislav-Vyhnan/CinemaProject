@@ -8,6 +8,7 @@ import Description from './Description';
 import { swEditPoster, swGetDataById, swPostPoster } from '../../service';
 import labelData from './labelData';
 import Loading from '../Loading/Loading';
+import localization from '../../сonstants/localization';
 
 export default function Form({ id }) {
   const [inputData, state, setState] = labelData();
@@ -38,11 +39,11 @@ export default function Form({ id }) {
     e.preventDefault();
 
     if (id === -1) {
-      const { title, genre, age, graphics, releaseDate, linkToYTTrailer } =
+      const { title, genres, age, graphics, releaseDate, linkToYTTrailer } =
         state;
       const formData = new FormData();
       formData.append('title', title);
-      formData.append('genre', genre);
+      formData.append('genres', genres);
       formData.append('age', age);
       formData.append('graphics', graphics);
       formData.append('releaseDate', releaseDate);
@@ -67,7 +68,9 @@ export default function Form({ id }) {
       ))}
       <Description state={[description, setDescription]} />
       {id === -1 ? <Pictures setImg={setImg} /> : null}
-      <button type="submit">{id === -1 ? 'Add' : 'Edit'} poster</button>
+      <button type="submit">
+        {id === -1 ? localization.ADD : localization.EDIT} {localization.POSTER}
+      </button>
     </form>
   ) : (
     <Loading />

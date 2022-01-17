@@ -1,3 +1,11 @@
+$btn-background-hover: gray;
+$btn-color-hover: white;
+$modal-dialog-background: white;
+$modal-background: rgba(0, 0, 0, 0.25);
+$footer-border: #dbdbdb;
+$modal-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 .modal {
   position: fixed;
   top: 0;
@@ -9,14 +17,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: $modal-background;
   animation-name: appear;
   animation-duration: 300ms;
 
   .modal-dialog {
     width: 100%;
     max-width: 250px;
-    background: white;
+    background: $modal-dialog-background;
     position: relative;
     margin: 0 20px;
     max-height: calc(100vh - 40px);
@@ -24,7 +32,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: $modal-box-shadow;
     animation-name: slide-in;
     animation-duration: 0.5s;
 
@@ -35,7 +43,7 @@
       padding: 1rem;
     }
     .modal-header {
-      border-bottom: 1px solid #dbdbdb;
+      border-bottom: 1px solid $footer-border;
       justify-content: space-between;
 
       .modal-close {
@@ -43,14 +51,26 @@
         cursor: pointer;
         padding: 1rem;
         margin: -1rem -1rem -1rem auto;
+
+        &:hover {
+          background-color: $btn-background-hover;
+          color: $btn-color-hover;
+        }
       }
       .modal-title {
         margin: 0;
       }
     }
     .modal-footer {
-      border-top: 1px solid #dbdbdb;
+      border-top: 1px solid $footer-border;
       justify-content: flex-end;
+
+      button {
+        &:hover {
+          background-color: $btn-background-hover;
+          color: $btn-color-hover;
+        }
+      }
     }
 
     .modal-body {

@@ -23,14 +23,3 @@
     align-items: center;
   }
 }
-
-@media screen and (max-width: 430px) {
-  .form {
-    h3 {
-      font-size: 11px;
-    }
-    textarea {
-      max-width: 85vw;
-    }
-  }
-}

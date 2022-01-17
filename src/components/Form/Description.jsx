@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import localization from '../../сonstants/localization';
 
 export default function Description({ state }) {
   const [description, setDescription] = state;
@@ -8,7 +9,7 @@ export default function Description({ state }) {
       <textarea
         id="description"
         type="text"
-        placeholder="Description"
+        placeholder={localization.DESCRIPTION}
         value={description}
         onChange={e => setDescription(e.target.value)}
       />

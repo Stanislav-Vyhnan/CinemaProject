@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import localization from '../../сonstants/localization';
 
 export default function Pictures({ setImg }) {
   const saveImg = e => {
@@ -8,7 +9,7 @@ export default function Pictures({ setImg }) {
   return (
     <>
       <section className="form-picture">
-        <h3>Add picture for poster</h3>
+        <h3>{localization.ADD_PICTURE_FOR_POSTER}</h3>
         <label htmlFor="addPoster">
           <input
             id="addPoster"

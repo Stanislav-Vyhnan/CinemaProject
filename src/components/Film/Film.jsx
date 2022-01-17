@@ -4,8 +4,7 @@ import { useSelector } from 'react-redux';
 import './Film.scss';
 import { swGetDataById } from '../../service/index';
 import Loading from '../Loading/Loading';
-
-const GET_IMG_URL = 'http://localhost:5000/upload/';
+import localization from '../../сonstants/localization';
 
 export default function Film() {
   const { id } = useParams();
@@ -26,7 +25,6 @@ export default function Film() {
       <section className="film">
         <h2>{state.title}</h2>
         <div className="film-info">
-          <img src={GET_IMG_URL + state.nameImg} alt="" />
           <iframe
             className="trailer"
             src={state.linkTrailerYT}
@@ -37,27 +35,28 @@ export default function Film() {
           />
           <table className="details">
             <tr>
-              <td>Age:</td>
+              <td>{localization.AGE}:</td>
               <td>{state.age}+</td>
             </tr>
             <tr>
-              <td>Genre:</td>
-              <td>{state.genre}</td>
+              <td>{localization.GENRES}:</td>
+              <td>{state.genres}</td>
             </tr>
             <tr>
-              <td>Graphics:</td>
+              <td>{localization.GRAPHICS}:</td>
               <td>{state.graphics}D</td>
             </tr>
             <tr>
-              <td>Release date:</td>
+              <td>{localization.RELEASE_DATE}:</td>
               <td>{state.releaseDate}</td>
             </tr>
-            <tr>
-              <td>Description:</td>
-              <td>{state.description}</td>
-            </tr>
+            <tr></tr>
           </table>
         </div>
+        <section className="film-description">
+          <h3>{localization.DESCRIPTION}</h3>
+          <p>{state.description}</p>
+        </section>
       </section>
     </>
   ) : (

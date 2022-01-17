@@ -12,12 +12,12 @@ import 'swiper/scss/virtual';
 import './Slider.scss';
 import Poster from './Poster/Poster';
 
-export default function Slider({ genre }) {
+export default function Slider({ genres }) {
   const [statePosters, setPosters] = useState([]);
   const films = useSelector(state => state.films);
   useEffect(() => {
     return setPosters(films);
-  }, [genre, films]);
+  }, [genres, films]);
   return (
     <>
       {/* eslint react/jsx-boolean-value:0 */}
@@ -45,5 +45,5 @@ export default function Slider({ genre }) {
 }
 
 Slider.propTypes = {
-  genre: PropTypes.string.isRequired,
+  genres: PropTypes.string.isRequired,
 };

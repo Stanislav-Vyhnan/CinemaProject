@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Genre.scss';
+import './Genres.scss';
 import PropTypes from 'prop-types';
 
 /* eslint jsx-a11y/label-has-associated-control: 0 */

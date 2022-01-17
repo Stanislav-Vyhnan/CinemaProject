@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './AdminBtn.scss';
 import editIcon from '../../../../../assets/images/edit.png';
 import deleteIcon from '../../../../../assets/images/delete.png';
+import localization from '../../../../../сonstants/localization';
 
 export default function AdminBtn({ id, takeId }) {
   return (
@@ -14,7 +15,7 @@ export default function AdminBtn({ id, takeId }) {
             id={id}
             type="button"
             className="edit-poster"
-            title="Edit poster"
+            title={`${localization.EDIT} ${localization.POSTER}`}
           >
             <img src={editIcon} className="edit-poster" alt="Edit" />
           </button>
@@ -22,7 +23,7 @@ export default function AdminBtn({ id, takeId }) {
         <button
           type="button"
           className="delete-poster"
-          title="Delete poster"
+          title={`${localization.DELETE} ${localization.POSTER}`}
           onClick={takeId}
         >
           <img src={deleteIcon} id={id} className="delete-poster" alt="Edit" />

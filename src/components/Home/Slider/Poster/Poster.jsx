@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import './Poster.scss';
 import AdminBtn from './AdminBtn/AdminBtn';
 import PosterDetails from './PosterDetails/PosterDetails';
 import Modal from '../../../Modal/Modal';
 import ModalButton from '../../../ModalButton/ModalButton';
+import URL from '../../../../сonstants/url';
+import localization from '../../../../сonstants/localization';
 
-const GET_IMG_URL = 'http://localhost:5000/upload/';
 export default function Poster({ data }) {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [visiable, setVisiable] = useState(false);
   const onFocus = () => setVisiable(state => !state);
   const posterImg = `poster-img ${visiable ? 'blur' : ''}`;
@@ -17,7 +18,7 @@ export default function Poster({ data }) {
   const [isModal, setModal] = useState(false);
   const onClose = () => {
     setModal(false);
-    // navigate(0);
+    navigate(0);
   };
   const takeId = e => {
     const { nameImg } = data;
@@ -31,12 +32,7 @@ export default function Poster({ data }) {
     <>
       <Modal
         visible={isModal}
-        title="Are you sure?"
-        footer={
-          <button type="button" onClick={onClose}>
-            Close
-          </button>
-        }
+        title={localization.ARE_YOU_SURE}
         onClose={onClose}
       >
         <ModalButton func={onClose} poster={posterDelete} />
@@ -45,7 +41,7 @@ export default function Poster({ data }) {
       <div className="container" onMouseEnter={onFocus} onMouseLeave={onFocus}>
         <img
           className={posterImg}
-          src={GET_IMG_URL + data.nameImg}
+          src={URL.IMAGES + data.nameImg}
           alt="Poster"
         />
         {visiable ? (
@@ -53,7 +49,9 @@ export default function Poster({ data }) {
             <div className="poster-info">
               <section className="poster-title">
                 <h2>{data.title}</h2>
-                <h3>{data.genre}</h3>
+              </section>
+              <section className="poster-genre">
+                <h3>{data.genres}</h3>
               </section>
               <PosterDetails id={data.id} />
               <AdminBtn id={data.id} takeId={takeId} />
