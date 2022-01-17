@@ -23,4 +23,5 @@ const localization = {
   COMPANY_LOGO: 'Company logo',
   EXIT_TO_PROFILE: 'Exit to profile',
 };
+
 export default localization;
