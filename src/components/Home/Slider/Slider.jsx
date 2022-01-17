@@ -29,7 +29,7 @@ export default function Slider({ genres }) {
         breakpoints={{
           1024: { spaceBetween: 0, slidesPerView: 4 },
           768: { spaceBetween: 0, slidesPerView: 3 },
-          510: { spaceBetween: 0, slidesPerView: 2 },
+          430: { spaceBetween: 0, slidesPerView: 2 },
           320: { spaceBetween: 0, slidesPerView: 1 },
         }}
         virtual

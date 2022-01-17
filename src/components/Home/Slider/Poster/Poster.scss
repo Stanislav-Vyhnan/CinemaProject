@@ -15,8 +15,9 @@ $footer-header: 120px;
   min-width: 100%;
 
   .poster-img {
+    width: 100%;
     transition: 0.3s;
-    min-height: calc(100vh - $footer-header);
+    height: calc(100vh - $footer-header);
   }
 
   .poster {
@@ -49,7 +50,7 @@ $footer-header: 120px;
         display: flex;
         align-items: center;
         user-select: none;
-        height: 20%;
+        height: 40%;
         color: $genre-h3;
       }
     }
