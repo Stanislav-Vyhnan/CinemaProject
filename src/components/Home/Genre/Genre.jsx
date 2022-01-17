@@ -7,13 +7,11 @@ import PropTypes from 'prop-types';
 
 export default function Genre({ genres, setGenre }) {
   const [visiable, setvisiable] = useState(false);
-
   const onShow = () => setvisiable(state => !state);
   const onSetGenre = e => {
     const genre = e.target.id;
     setGenre(genre);
   };
-
   const genreTogle = `genre-toggle ${visiable ? 'genre-toggle-hidden' : ''}`;
   const genreList = `list ${visiable ? 'genre-show' : ''}`;
   const maskContent = `mask-content ${visiable ? 'mask-content-show' : ''}`;
@@ -43,14 +41,14 @@ export default function Genre({ genres, setGenre }) {
                 </button>
               </li>
               {genres.map(el => (
-                <li key={el[1]}>
+                <li key={el}>
                   <button
                     type="button"
                     className="btn"
-                    id={el[0]}
+                    id={el}
                     onClick={onSetGenre}
                   >
-                    {el[0]}
+                    {el}
                   </button>
                 </li>
               ))}

@@ -6,8 +6,6 @@ $footer-shadow: 0px -4px 15px -10px #ffd700;
 footer {
   z-index: 1;
   min-width: 100%;
-  display: flex;
-  justify-content: center;
   background-color: rgba($color: #000000, $alpha: 0.4);
   height: 60px;
   background-color: $footer-backgraound-color;

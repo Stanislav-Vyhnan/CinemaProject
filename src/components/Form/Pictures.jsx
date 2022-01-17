@@ -7,8 +7,8 @@ export default function Pictures({ setImg }) {
   };
   return (
     <>
-      <section>
-        <h4>Add picture for poster</h4>
+      <section className="form-picture">
+        <h3>Add picture for poster</h3>
         <label htmlFor="addPoster">
           <input
             id="addPoster"

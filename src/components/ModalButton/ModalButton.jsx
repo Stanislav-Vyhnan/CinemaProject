@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { swDeletePoster } from '../../service';
 
 export default function ModalButton({ func, poster }) {
-  const onClick = () => {
+  const onDeletePoster = () => {
     swDeletePoster(poster);
     func();
   };
   return (
     <>
-      <button type="button" onClick={onClick}>
+      <button type="button" onClick={onDeletePoster}>
         Yes, I am
       </button>
       <button type="button" onClick={func}>

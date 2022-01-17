@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Navigation.scss';
 
 export default function Navigation() {
   return (
-    <>
-      <Link to="create">
+    <nav>
+      <Link to="create/-1">
         <button type="button" className="btn">
           CREATE
           <br />
@@ -16,6 +17,6 @@ export default function Navigation() {
           HOME
         </button>
       </Link>
-    </>
+    </nav>
   );
 }

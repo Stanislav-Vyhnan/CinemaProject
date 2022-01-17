@@ -20,6 +20,7 @@ header {
 
   h1 {
     text-align: center;
+    white-space: nowrap;
   }
 
   h1,
@@ -46,6 +47,24 @@ header {
     span {
       font-size: 1.5em;
       margin-right: 0.7vw;
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  header {
+    h1 {
+      font-size: 24px;
+    }
+
+    .login {
+      .exit {
+        width: 28px;
+        height: 28px;
+      }
+      span {
+        font-size: 1em;
+      }
     }
   }
 }

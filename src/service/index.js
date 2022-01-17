@@ -3,15 +3,13 @@ import axios from 'axios';
 
 const POSTERS_URL = 'http://localhost:5000/posters/';
 
-export const swGetData = async () => {
-  const data = await axios.get('http://localhost:5000/posters/posters');
-  return data;
+export const swGetData = () => {
+  return axios.get(POSTERS_URL);
 };
-
-export const swPostData = (url, data) => {
+export const swPostPoster = data => {
   return axios({
     method: 'post',
-    url,
+    url: POSTERS_URL,
     data,
     headers: { 'Content-Type': 'multipart/form-data' },
   });
@@ -21,7 +19,10 @@ export const swGetDataById = id => {
   return axios.get(POSTERS_URL + id);
 };
 
+export const swEditPoster = (id, data) => {
+  return axios.patch(POSTERS_URL + id, data);
+};
+
 export const swDeletePoster = ({ id, fileName }) => {
-  console.log(id, fileName);
-  return axios.delete(POSTERS_URL + id, { params: fileName, id });
+  return axios.delete(POSTERS_URL + id, { data: fileName });
 };

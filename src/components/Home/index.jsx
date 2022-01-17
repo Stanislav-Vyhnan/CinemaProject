@@ -14,12 +14,11 @@ export default function index() {
     const films =
       genreFilm === 'all'
         ? posters
-        : posters.slice('').filter(el => el.genre === genreFilm);
+        : posters.slice('').filter(el => el.genre.includes(genreFilm));
     dispatch(actions.showGenreFilm(films));
   }, [genreFilm, dispatch, posters]);
 
   const uniequGenres = createGenres(posters);
-
   return (
     <>
       <div className="wrapper-posters">

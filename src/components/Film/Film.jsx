@@ -28,24 +28,36 @@ export default function Film() {
         <div className="film-info">
           <img src={GET_IMG_URL + state.nameImg} alt="" />
           <iframe
-            width="560"
-            height="315"
+            className="trailer"
             src={state.linkTrailerYT}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
-          <div>
-            <ul>
-              <li>Age: {state.age}+</li>
-              <li>Genre: {state.genre}</li>
-              <li>Graphics: {state.graphics}D</li>
-              <li>Release date: {state.releaseDate}</li>
-            </ul>
-          </div>
+          <table className="details">
+            <tr>
+              <td>Age:</td>
+              <td>{state.age}+</td>
+            </tr>
+            <tr>
+              <td>Genre:</td>
+              <td>{state.genre}</td>
+            </tr>
+            <tr>
+              <td>Graphics:</td>
+              <td>{state.graphics}D</td>
+            </tr>
+            <tr>
+              <td>Release date:</td>
+              <td>{state.releaseDate}</td>
+            </tr>
+            <tr>
+              <td>Description:</td>
+              <td>{state.description}</td>
+            </tr>
+          </table>
         </div>
-        <div>Description: {state.description}</div>
       </section>
     </>
   ) : (
