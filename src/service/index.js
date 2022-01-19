@@ -25,5 +25,5 @@ export const swEditPoster = (id, data) => {
 };
 
 export const swDeletePoster = ({ id, fileName }) => {
-  return axios.delete(POSTERS + id, { data: fileName });
+  return axios.delete(POSTERS + id, { data: { nameImg: fileName } });
 };
